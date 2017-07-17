@@ -18,16 +18,6 @@ function getComponentMetadataPath(filepath) {
 }
 
 /**
- * Is a vue file
- *
- * @param {string} filepath
- * @returns {boolean}
- */
-function isVueFile(filepath) {
-	return /.vue$/.test(filepath);
-}
-
-/**
  * Return an object with all required for style guide information for a given component.
  *
  * @param {string} filepath
@@ -35,17 +25,8 @@ function isVueFile(filepath) {
  * @returns {object}
  */
 module.exports = function processComponent(filepath, config) {
-	let props;
+	const props = requireIt(`!!${vueDocLoader}!${filepath}`);
 	const componentPath = path.relative(config.configDir, filepath);
-	if (isVueFile(filepath)) {
-		props = requireIt(`!!${vueDocLoader}!${filepath}`);
-	} else {
-		const message =
-			`Error when parsing ${filepath}:\n\n` +
-			'Only can parse files .vue:\n' +
-			logger.debug(message);
-		throw new Error(message);
-	}
 	const examplesFile = config.getExampleFilename(filepath);
 	const componentMetadataPath = getComponentMetadataPath(filepath);
 	return {
