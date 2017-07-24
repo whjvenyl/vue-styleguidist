@@ -54,7 +54,7 @@ module.exports.pitch = function() {
 	// Nothing to show in the style guide
 	const welcomeScreen = allContentPages.length === 0 && allComponentFiles.length === 0;
 	const patterns = welcomeScreen ? getComponentPatternsFromSections(config.sections) : undefined;
-	const vuex = config.vuex ? requireIt(config.vuex) : undefined;
+	const vuex = undefined;
 	const mixins = config.mixins.map(mixin => {
 		if (typeof mixin === 'string') {
 			mixin = path.resolve(config.configDir, mixin);

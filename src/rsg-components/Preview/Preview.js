@@ -5,6 +5,8 @@ import PlaygroundError from 'rsg-components/PlaygroundError';
 import esprima from 'esprima';
 import Vue from 'vue';
 
+window.Vue = Vue
+
 /* eslint-disable react/no-multi-comp */
 const nameVarComponent = '__component__';
 const separateScript = code => {

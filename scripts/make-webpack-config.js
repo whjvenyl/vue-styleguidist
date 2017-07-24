@@ -33,7 +33,7 @@ module.exports = function(config, env) {
 			extensions: isWebpack1 ? ['.js', '.jsx', '.json', ''] : ['.js', '.jsx', '.json'],
 			alias: {
 				'rsg-codemirror-theme.css': `codemirror/theme/${config.highlightTheme}.css`,
-				vue$: 'vue/dist/vue.esm.js',
+				vue: 'vue/dist/vue.js',
 				'@': path.resolve(__dirname, '../src'),
 			},
 		},
@@ -49,9 +49,16 @@ module.exports = function(config, env) {
 					NODE_ENV: JSON.stringify(env),
 				},
 			}),
+			new webpack.ProvidePlugin({
+				Vue: ['vue'],
+				vue: ['vue'],
+			}),
 		],
 		performance: {
 			hints: false,
+		},
+		externals: {
+			Vue: 'Vue',
 		},
 	};
 

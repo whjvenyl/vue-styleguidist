@@ -26,7 +26,7 @@ ${patterns.map(p => `- \`${p}\``).join('\n')}
 Create **styleguide.config.js** file in your project root directory like this:
 
     module.exports = {
-      components: 'src/components/**/*.vue'
+      components: 'src/components/**/*.js'
     };
 
 Read more in the [locating components guide](${DOCS_COMPONENTS}).

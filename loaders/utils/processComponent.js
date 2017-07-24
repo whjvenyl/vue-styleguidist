@@ -5,6 +5,7 @@ const path = require('path');
 const requireIt = require('./requireIt');
 const logger = require('glogg')('rsg');
 const vueDocLoader = path.resolve(__dirname, '../vuedoc-loader.js');
+const exportComponentLoader = path.resolve(__dirname, '../export-component-loader.js');
 
 /**
  * References the filepath of the metadata file.
@@ -32,7 +33,7 @@ module.exports = function processComponent(filepath, config) {
 	return {
 		filepath: componentPath,
 		pathLine: config.getComponentPathLine(componentPath),
-		module: requireIt(filepath),
+		module: requireIt(`!!${exportComponentLoader}!${filepath}`),
 		props,
 		hasExamples: examplesFile && fs.existsSync(examplesFile),
 		metadata: fs.existsSync(componentMetadataPath)

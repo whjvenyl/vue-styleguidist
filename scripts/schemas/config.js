@@ -3,7 +3,7 @@
 // If you want to access any of these options in React, don’t forget to update CLIENT_CONFIG_OPTIONS array
 // in loaders/styleguide-loader.js
 
-const DEFAULT_COMPONENTS_PATTERN = 'src/@(components|Components)/**/*.vue';
+const DEFAULT_COMPONENTS_PATTERN = 'src/@(components|Components)/**/*.js';
 
 const path = require('path');
 const startCase = require('lodash/startCase');
@@ -27,7 +27,7 @@ module.exports = {
 	// `components` is a shortcut for { sections: [{ components }] }, see `sections` below
 	components: {
 		type: ['string', 'function'],
-		example: 'components/**/[A-Z]*.vue',
+		example: 'components/**/[A-Z]*.js',
 	},
 	configureServer: {
 		type: 'function',
@@ -62,7 +62,7 @@ module.exports = {
 
 			return false;
 		},
-		example: componentPath => componentPath.replace(/\.vue?$/, '.examples.md'),
+		example: componentPath => componentPath.replace(/\.js?$/, '.examples.md'),
 	},
 	ignore: {
 		type: 'array',

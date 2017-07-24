@@ -31,7 +31,7 @@ export function globalizeComponent(component) {
 	if (!component.name) {
 		return;
 	}
-	Vue.component(displayName, component.module);
+	Vue.component(displayName, component.module[1]);
 }
 
 /**

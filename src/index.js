@@ -26,6 +26,7 @@ function renderStyleguide() {
 	// eslint-disable-next-line import/no-unresolved
 	const styleguide = require('!!../loaders/styleguide-loader!./index.js');
 
+	console.log(styleguide);
 	let sections = processSections(styleguide.sections, styleguide.vuex);
 	processMixins(styleguide.mixins);
 	// Parse URL hash to check if the components list must be filtered
