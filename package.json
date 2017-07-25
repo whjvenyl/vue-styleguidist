@@ -1,7 +1,7 @@
 {
   "name": "vue-styleguidist",
   "description": "Vue components style guide generator",
-  "version": "1.2.1-vue-1",
+  "version": "1.2.6-vue-1",
   "homepage": "https://github.com/vue-styleguidist/vue-styleguidist",
   "repository": {
     "type": "git",
@@ -78,9 +78,7 @@
     "type-detect": "^4.0.3",
     "unist-util-visit": "^1.1.1",
     "vue": "^1.0.28",
-    "vue-docgen-api": "^2.0.9-globals-vue1",
-    "vue-webpack-loaders": "^1.0.4",
-    "vuex": "^2.3.1",
+    "vue-docgen-api": "2.0.10-globals-vue1",
     "webpack-dev-server": "^1.16.3",
     "webpack-merge": "^4.1.0",
     "webpage": "^0.3.0"
