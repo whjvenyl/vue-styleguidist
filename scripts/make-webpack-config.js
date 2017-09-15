@@ -16,6 +16,10 @@ const RENDERER_REGEXP = /Renderer$/;
 const sourceDir = path.resolve(__dirname, '../lib');
 const htmlLoader = require.resolve('html-webpack-plugin/lib/loader');
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir || '');
+}
+
 module.exports = function(config, env) {
 	process.env.NODE_ENV = process.env.NODE_ENV || env;
 
@@ -35,6 +39,10 @@ module.exports = function(config, env) {
 				vue$: 'vue/dist/vue.esm.js',
 				'@': path.resolve(__dirname, '../src'),
 			},
+      modules: [
+        path.resolve(__dirname, '../src'),
+        resolve('node_modules')
+      ]
 		},
 		plugins: [
 			new StyleguidistOptionsPlugin(config),
